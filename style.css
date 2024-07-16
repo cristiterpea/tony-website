@@ -1,42 +1,45 @@
+html, body, section {
+  block-size: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  color: black;
+  background: white;
+}
+
+section:nth-of-type(1) {
+  color: white;
+  background: black;
+}
+
 body {
-    font-family: 'Avenir', sans-serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100vh;
-    scroll-behavior: smooth;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-}
-
-.slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    height: 100vh;
-    scroll-snap-align: start;
-    padding: 20px;
-    background-size: cover;
-    background-position: center;
+  margin: 0;
+  font-family: 'Avenir', sans-serif;
+  font-size: 16px;
 }
 
 h1, h2, p, ul, li, blockquote {
     max-width: 90%;
     font-size: calc(16px + 1vw); /* Responsive font size */
-    color: white;
 }
 
 h1 {
     font-size: calc(20px + 2vw);
+    font-weight: bold;
 }
 
 h2 {
@@ -55,10 +58,46 @@ p, ul, li, blockquote {
     font-size: max(16px, min(50px, calc(14px + 1vw)));
 }
 
-.slide:nth-child(odd) {
-    background-color: #333;
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 90%;
+}
+.text-container {
+    flex: 1;
+    padding-right: 20px;
+    text-align: left;
 }
 
-.slide:nth-child(even) {
-    background-color: #555;
+.text-container h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
+
+.text-container p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    width: 300px; /* Fixed width for the image container */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
