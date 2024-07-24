@@ -1,0 +1,333 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    header{
+        scroll-snap-align: start;
+        height: 100vh;
+        width: 100%; 
+        background-image:linear-gradient(to bottom, rgb(184, 156, 156), rgb(35, 1, 7));
+        position: relative; 
+        .bg{
+            background-image: url('./assets/hero.jpg');
+            height:100%;
+            width:100%;
+            opacity: 0.75;
+            background-size:cover;
+        }
+        .text{
+            position:absolute;
+            bottom: 20%;
+            left: 7%;
+            width:90%;
+            h1, p{
+                color:white;
+                text-shadow: 1px 1px 1px black;
+            }
+            h1{
+                margin-bottom: 1.5rem;
+            }
+            p{
+                font-weight: 300;
+            }
+        }
+    }
+    .slide{
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        border: 1rem solid rgb(238, 239, 242);
+        border-right: none;
+        padding: 20px 10px 10px 20px;
+        min-height: 100vh;
+        .container{
+            min-height:calc(100vh - 2rem - 30px); // border + padding
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            span{
+                display: block;
+                font-size: 70%;
+            }
+            .content{
+                .photo{
+                    padding:10px;
+                    display: flex;
+                    flex-direction:column; 
+                    align-items: center;
+                    width:200px;
+                    margin: 0 auto;
+                    margin-bottom: 15px;
+                    img{
+                        width:100%;
+                        height: 100%;
+                    }
+                    .tonys-photo{
+                        border-radius: 50%;
+                        height:unset;
+                    }
+                }
+                .slide-text{
+                    p{
+                        line-height:16px;
+                    }
+                    .about{
+                        .about-item{
+                            display:flex;
+                            flex-direction: row;
+                            align-items: center;
+                            img{
+                                width:60px;
+                                margin-right:10px;
+                                margin-bottom: 1rem;
+                            }
+                            p{
+                                font-size:14px;
+                                line-height: 18px;
+                            }
+                        }
+                    }
+                    .testimonials{
+                        width:calc(100% - 50px);
+                        display:flex;
+                        flex-direction:row;
+                        align-items: center;
+                        position:relative;
+                        margin: 0 auto;
+                        button{
+                            position:absolute;
+                            font-size: 2rem;
+                            background-color: rgb(218, 218, 219);
+                            border:none;
+                            padding:10px 3px;
+                            border-radius:10px;
+                            cursor:pointer;
+                            &:hover{
+                                background-color: rgb(238, 239, 242);
+                            }
+                        }
+                        .prev-btn{
+                            left:-25px;
+                        }
+                        .next-btn{
+                            right:-25px;
+                        }
+                       .testimonials-container{
+                            display:flex;
+                            flex-direction:row; 
+                            overflow-x: hidden;
+                            scroll-snap-type: x mandatory;
+                            scroll-behavior: smooth;
+                            .testimonials-card{
+                                scroll-snap-align:start;
+                                background-color:rgb(244, 244, 244);
+                                min-width:230px;
+                                height: 300px;
+                                margin: 0 5px;
+                                padding: 1rem 0.5rem;
+                                border-radius:5px;
+                                display:flex;
+                                flex-direction:column;
+                                justify-content: center;
+                                &:first-child{
+                                    margin-left:0;
+                                }
+                                &:last-child{
+                                    margin-right:0;
+                                }
+                                p:first-child{
+                                    font-weight: 600;
+                                }
+                                p:last-child{
+                                    margin-bottom:0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .get-started{
+        scroll-snap-align: start;
+        width:100%; 
+        height:100vh;
+        padding: 20px;
+        .container-get-started{
+            min-height: calc(100vh - 2rem - 40px);
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            .image-get-started{
+                min-width: 280px;
+                width: 100%;
+                margin: 0 auto;
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 768px){
+    .App{
+        header{
+            p{
+                font-size: 20px;
+            }
+        }
+        .slide{
+            border-width:3.5rem;
+             border-right: 0;
+            .container{
+                min-height:calc(100vh - 7rem - 30px);
+                .content{
+                    height:100%;
+                    margin:auto 0;
+                    display:flex; 
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    .slide-text{
+                        width:75%;
+                        order:1; 
+                        p{
+                            line-height:19px;
+                        }
+                        .about{
+                            display:flex;
+                            flex-direction:row;
+                            .about-item{
+                                display:flex;
+                                flex-direction:column;
+                                margin-right:10px;
+                                text-align:center;
+                                p{
+                                    font-size:14px;
+                                    line-height: 21px;
+                                }
+                                img{
+                                    width: 75px;
+                                    margin-bottom: 20px;
+                                }
+                            }
+                        }
+                    }
+                    .outstanding p{
+                        font-size: 16px;
+                    }
+                    .photo{
+                        order:2;
+                        width:25%;
+                        min-width: 200px;
+                        margin-bottom:0;
+                        p{
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .get-started{
+            width:100vw;
+            border-width: 2.5rem;
+            border-right:none;
+            .container-get-started{
+                width:100%;
+                min-height:calc(100vh - 5rem - 40px);
+                h2{
+                    margin-bottom: 0.5rem;
+                }
+                p{
+                    font-size: 18px;
+                }
+                .image-get-started{
+                    width: auto;
+                    img{
+                        max-height: calc(100vh - 5rem - 130px);
+                        aspect-ratio: 1.75;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width:1024px){
+    .App{
+        header{
+            p{
+                font-size: 24px;
+            }
+        }
+        .slide{
+            border-width: 4rem;
+            border-right: none;
+            padding:40px 10px 10px 40px;
+            .container{
+                min-height:calc(100vh - 8rem - 50px);
+                max-width: 1440px;
+                margin: 0 auto;
+                .content{
+                    .photo{
+                        width:30%;
+                        min-width:unset;
+                        max-width: 380px;
+                        img{
+                            width:100%; 
+                            height:100%;
+                        }
+                    }
+                    .slide-text{
+                        width: 70%;
+                        .about{
+                            .about-item{
+                                img{
+                                    width:100px;
+                                }
+                                p{
+                                    font-size:15px;
+                                }
+                            }
+                        }   
+                        .testimonials{
+                            button{
+                                padding:10px 4px;
+                                font-size: 2.5rem;
+                            }
+                            .prev-btn{
+                                left:-35px;
+                                padding-right:5px;
+                            }
+                            .next-btn{
+                                right:-35px;
+                                padding-left:5px;
+                            }
+                           .testimonials-container{
+                                .testimonials-card{
+                                    min-width:270px;
+                                    height: 330px;
+                                    p{
+                                        font-size:17px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .get-started{
+            border-width: 2.5rem;
+            border-left-width: 4rem;
+            border-right:none;
+            .container-get-started{
+                min-height:calc(100vh - 5rem - 50px);
+                max-width: 1440px;
+                margin: 0 auto;
+            }
+            p{
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
